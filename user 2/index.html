@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turbo Racer - 2D Arcade Racing Game</title>
+  <meta name="description" content="A fast-paced, polished 2D arcade car racing game built with HTML5 Canvas and Vanilla JavaScript.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-container">
+    <!-- Top HUD Bar (Visible during gameplay) -->
+    <div id="hud" class="hud hidden">
+      <div class="hud-item">
+        <span class="hud-label">SCORE</span>
+        <span id="scoreDisplay" class="hud-value">0</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">SPEED</span>
+        <span id="speedDisplay" class="hud-value">60 KM/H</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">BEST</span>
+        <span id="hudBestDisplay" class="hud-value">0</span>
+      </div>
+    </div>
+
+    <!-- Audio Toggle Button -->
+    <button id="soundToggle" class="sound-toggle-btn" aria-label="Toggle Sound">
+      <span id="soundIcon">🔊</span>
+    </button>
+
+    <!-- Main Game Canvas -->
+    <canvas id="gameCanvas" width="400" height="650"></canvas>
+
+    <!-- Start Game Screen Overlay -->
+    <div id="startScreen" class="overlay">
+      <div class="card">
+        <div class="logo-tag">ARCADE RACER</div>
+        <h1 class="game-title">TURBO<br><span class="highlight">RACER</span></h1>
+        
+        <div class="high-score-badge">
+          <span>🏆 BEST SCORE:</span>
+          <strong id="startHighScore">0</strong>
+        </div>
+
+        <div class="controls-guide">
+          <h3>CONTROLS</h3>
+          <div class="control-row">
+            <div class="key-group">
+              <kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd>
+            </div>
+            <span>Steer Left / Right</span>
+          </div>
+          <div class="control-row">
+            <div class="key-group">
+              <kbd>SPACE</kbd>
+            </div>
+            <span>Start / Play Again</span>
+          </div>
+        </div>
+
+        <button id="startBtn" class="btn btn-primary">START GAME</button>
+      </div>
+    </div>
+
+    <!-- Game Over Screen Overlay -->
+    <div id="gameOverScreen" class="overlay hidden">
+      <div class="card card-danger">
+        <div class="crash-icon">💥</div>
+        <h2 class="game-over-title">GAME OVER</h2>
+        
+        <div id="newHighBadge" class="new-high-badge hidden">🎉 NEW HIGH SCORE!</div>
+
+        <div class="score-summary">
+          <div class="score-box">
+            <span class="score-label">FINAL SCORE</span>
+            <span id="finalScore" class="score-value">0</span>
+          </div>
+          <div class="score-box">
+            <span class="score-label">BEST SCORE</span>
+            <span id="bestScore" class="score-value">0</span>
+          </div>
+        </div>
+
+        <button id="restartBtn" class="btn btn-primary">PLAY AGAIN</button>
+        <p class="restart-hint">or press <kbd>SPACE</kbd> to restart</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
